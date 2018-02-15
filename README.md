@@ -1,3 +1,3 @@
 # demos
 
-### [Sticky header with hero image](/sticky-header)
+### [Sticky header with hero image](/demos/sticky-header)
