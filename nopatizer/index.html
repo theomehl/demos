@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Try Again</title>
+	<style>
+		* {
+			font-family: sans-serif;
+			padding: 0;
+			margin: 0;
+		}
+		.grid {
+			display: grid;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+		}
+		.grid h1 {
+			font-size: 50px;
+			text-align: center;
+		}
+		.grid p {
+			text-align: center;
+			padding-top: 25px;
+		}
+	</style>
+</head>
+<body>
+	<div class="grid">
+		<h1 id="nope"></h1>
+    <p>Refresh page for a new nope</p>
+	</div>
+	<script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+	<script>
+		var myNopes = new Array();
+		myNopes[0] = "Nope";
+		myNopes[1] = "Nice try";
+		myNopes[2] = "Not this time";
+		myNopes[3] = "Negative ghost rider";
+		myNopes[4] = "Fuhgeddaboudit"
+		myNopes[5] = "No dice"
+
+
+		var nopeRandom = Math.floor(Math.random()*myNopes.length);
+		$('#nope').html(myNopes[nopeRandom]);
+
+	</script>
+</body>
+</html>
