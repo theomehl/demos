@@ -43,18 +43,10 @@
 			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 			  crossorigin="anonymous"></script>
 	<script>
-		var myNopes = new Array();
-		myNopes[0] = "Nope";
-		myNopes[1] = "Nice try";
-		myNopes[2] = "Not this time";
-		myNopes[3] = "Negative ghost rider";
-		myNopes[4] = "Fuhgeddaboudit";
-		myNopes[5] = "No dice";
-		myNopes[6] = "Iwiouldlaiktobuoyademberger";
-
-
-		var nopeRandom = Math.floor(Math.random()*myNopes.length);
-		$('#nope').html(myNopes[nopeRandom]);
+		var myNopes = ['Nope', 'Nice try', 'Not this time', 'Negative ghost rider', 'Fuhgeddaboudit', 'No dice', 'Iwiouldlaiktobuoyademberger'];
+		$(document).ready(function() {
+    		$(#nope).html(myNopes[Math.floor(Math.random()*myNopes.length)]);
+		});
 
 	</script>
 </body>
