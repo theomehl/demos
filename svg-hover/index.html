@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Poormans Attempt at SVG Styling</title>
+  <title>Example</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   
@@ -15,8 +15,7 @@
 <body>
 
   <!-- Learn about this code on MDN: https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feDisplacementMap -->
-<div class="test"><nav><a href="#" class="goofyballs">BARK</a><a href="#" class="goofyballs">GRRR</a><a href="#" class="goofyballs">WOOFWOOF</a></nav></div>
-<svg width="200" height="200" viewBox="0 0 220 220"
+<div class="test"><svg
      xmlns="http://www.w3.org/2000/svg">
   <filter id="displacementFilter">
     <feTurbulence type="turbulence" baseFrequency="0.55"
@@ -78,7 +77,9 @@
     <feDisplacementMap in2="turbulence" in="SourceGraphic"
         scale="5" xChannelSelector="R" yChannelSelector="G"/>
   </filter>
-</svg>
+</svg><nav><p class="goofyballs">BARK</p><p class="goofyballs">GRRR</p><p class="goofyballs">WOOFWOOF</p></nav>
+  
+</div>
   
   
 

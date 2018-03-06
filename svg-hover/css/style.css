@@ -1,23 +1,24 @@
-body {
+*,  body {
   margin: 0;
   padding: 0;
 }
 .test {
   display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
   justify-content: center;
   align-items: center;
   height: 100vh;
   max-width: 100%;
   background: #23395b;
 }
-a {
-  display: block;
+p {
   text-align: center;
   text-decoration: none;
   color: #1d2f4b;
-  margin: 50px;
+  padding: 15px;
+  cursor: default;
 }
-a:hover {
+p:hover {
   color: #0d1522;
 }
 .goofyballs {
@@ -28,13 +29,8 @@ a:hover {
 .goofyballs:hover {
   animation: hover-anim 0.3s linear infinite;
 }
-p {
-  margin: 0;
-  justify-self: center;
-  align-self: center;
-}
-p:focus {
-  outline: 0;
+goofyballs:active {
+  animation: hover-anim 0.3s linear infinite;
 }
 @keyframes hover-anim {
   0% {
