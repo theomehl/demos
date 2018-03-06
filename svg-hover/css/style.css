@@ -14,7 +14,7 @@ svg {
   align-items: center;
   height: 100vh;
 }
-@supports not (display: grid){
+@supports (display: grid){
   .test {
   display: grid;
   justify-content: center;
