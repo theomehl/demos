@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.test {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  max-width: 100%;
+  background: #23395b;
+}
+a {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: #1d2f4b;
+  margin: 50px;
+}
+a:hover {
+  color: #0d1522;
+}
+.goofyballs {
+  /*animation: squiggly-anim 0.3s linear infinite;*/
+  font-size: 75px;
+  font-family: sans-serif;
+}
+.goofyballs:hover {
+  animation: hover-anim 0.3s linear infinite;
+}
+p {
+  margin: 0;
+  justify-self: center;
+  align-self: center;
+}
+p:focus {
+  outline: 0;
+}
+@keyframes hover-anim {
+  0% {
+    filter: url("#displacementFilter6")
+  }
+  25% {
+    filter: url("#displacementFilter7")
+  }
+  50% {
+    filter: url("#displacementFilter8")
+  }
+  75% {
+    filter: url("#displacementFilter9")
+  }
+  100% {
+    filter: url("#displacementFilter10")
+  }
+}
+@keyframes squiggly-anim {
+  0% {
+
+            filter: url("#displacementFilter");
+  }
+  25% {
+
+            filter: url("#displacementFilter2");
+  }
+  50% {
+
+            filter: url("#displacementFilter3");
+  }
+  75% {
+
+            filter: url("#displacementFilter4");
+  }
+  100% {
+
+            filter: url("#displacementFilter5");
+  }
+}
