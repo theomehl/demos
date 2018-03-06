@@ -3,8 +3,9 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Example</title>
+  <title>Poormans Example of a SVG Hover Effect</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Passion+One|Permanent+Marker|Bowlby+One+SC|Indie+Flower|Shadows+Into+Light" rel="stylesheet"> 
   
   
       <link rel="stylesheet" href="css/style.css">
@@ -15,7 +16,11 @@
 <body>
 
   <!-- Learn about this code on MDN: https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feDisplacementMap -->
-<div class="test"><svg
+<div class="test">
+ <nav>
+<p class="goofyballs">BARK</p><p class="goofyballs">GRRR</p><p class="goofyballs">WOOFWOOF</p></nav>
+</div>
+ <svg
      xmlns="http://www.w3.org/2000/svg">
   <filter id="displacementFilter">
     <feTurbulence type="turbulence" baseFrequency="0.55"
@@ -77,9 +82,7 @@
     <feDisplacementMap in2="turbulence" in="SourceGraphic"
         scale="5" xChannelSelector="R" yChannelSelector="G"/>
   </filter>
-</svg><nav><p class="goofyballs">BARK</p><p class="goofyballs">GRRR</p><p class="goofyballs">WOOFWOOF</p></nav>
-  
-</div>
+</svg>
   
   
 
