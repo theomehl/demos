@@ -12,6 +12,7 @@ p {
   width: 100vw;
   height: 70px;
   background: rgb(18, 64, 84);
+  -webkit-position: sticky;
   position: sticky;
   top: 0;
   color: #fff;
