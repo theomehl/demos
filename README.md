@@ -4,6 +4,6 @@
 
 ### [Nopatizer](/nopatizer)
 
-### [First attempt at an SVG hover effect (with help) - Works Best on Desktop](/svg-hover)
+### [First attempt at an SVG hover effect (with help) - Works best on a desktop browser](/svg-hover)
 
 ### [ok](/ok)
