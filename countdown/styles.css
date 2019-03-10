@@ -4,14 +4,13 @@
 }
 body {
     height: 100vh;
-    /* max-width: 300px; */
-    /* margin: 0 auto;  */
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: Avenir, serif;
     font-size: 24px;
+    background: hsl(263, 8%, 94%);
 }
 h1 {
     margin-bottom: 15px;
