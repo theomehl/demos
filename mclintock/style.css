@@ -1,8 +1,6 @@
 *, body {
   padding: 0; 
   margin: 0;
-/*   background: #000; */
-/*   background: linear-gradient(90deg, rgba(255,255,255,1) 60%, rgba(0,0,0,1) 60%); */
 }
 main {
 /*   max-width: 1200px; */
@@ -25,8 +23,6 @@ h1 span.white {
   font-weight: 500;
   background: #000;
   color: #fff;
-  border: 6px solid;
-  border-width: 6px 6px 6px 0;
   padding: 1rem;
 }
 .subhead {
