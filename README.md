@@ -13,3 +13,5 @@
 ### [Repeating Dialog Box](/repeating-dialog-box)
 
 ### [hello mclintock](/mclintock)
+
+### [inspiration](/inspiration)
