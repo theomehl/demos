@@ -33,6 +33,12 @@
         blockquote {
             grid-row-start: 4;
         }
+        blockquote p::before {
+            content: open quote;
+        }
+        blockquote p::after {
+            content: close quote;
+        }
         @media all and (min-width: 600px) {
             body {
                 grid-template-columns: repeat(6, 1fr);
