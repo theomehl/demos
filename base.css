@@ -92,6 +92,10 @@
 
 /* Base body styles for all projects */
 
+*, :after, :before {
+    box-sizing: border-box;
+}
+
 body {
     font-family: var(--sans-serif);
     color: var(--gray-900);
