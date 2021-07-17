@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,44 +8,83 @@
 	<meta name="description" content="A dynamic way of telling yourself no.">
 	<link rel="stylesheet" href="../base.css" media="all">
 	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
 		.grid {
-			display: grid;
+			display: flex;
+			flex-direction: column;
 			align-items: center;
 			justify-content: center;
 			height: 100vh;
 		}
-		.grid h1 {
-			font-size: 25px;
+
+		h1 {
+			font-size: 2.5rem;
 			text-align: center;
-		}
-		.grid p {
-			text-align: center;
-			padding-top: 25px;
-		}
-		@media all and (min-width: 500px) {
-			.grid h1 {
-				font-size: 50px;
-			}
 		}
 	</style>
 </head>
+
 <body>
 	<div class="grid">
-		<div>
-		<h1 id="nope"></h1>
-    <p>Refresh page for a new nope</p>
-		</div>
+		<h1 id="nope" aria-live="polite"></h1>
+		<button id="newNope">Get a new nope</button>
 	</div>
-	<script
-			  src="https://code.jquery.com/jquery-3.3.1.min.js"
-			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-			  crossorigin="anonymous"></script>
 	<script>
-		var myNopes = ['Nope', 'Nice try', 'Not this time', 'Negative ghost rider', 'Fuhgeddaboudit', 'No dice', 'Iwiouldlaiktobuoyademberger', 'Please', 'Come On Man!', 'Really?', '🙅‍♂️','🚫', ];
-		$(document).ready(function() {
-    		$('#nope').html(myNopes[Math.floor(Math.random()*myNopes.length)]);
-		});
+
+		let nopes = ['Nope', 'Nice try', 'Not this time', 'Negative ghost rider', 'Fuhgeddaboudit', 'No dice', 'Please', 'Come On Man!', 'Really?', '🙅‍♂️', '🚫', 'Absolutely not', 'Nay', 'No way', 'Cease', 'Lay off it, Bob', 'Give it a rest'];
+		let nopeDisplay = document.querySelector('#nope');
+		let recentNopes = [];
+		let button = document.querySelector('#newNope');
+
+		/**
+		 * Randomly shuffle an array
+		 * https://stackoverflow.com/a/2450976/1293256
+		 * @param  {Array} array The array to shuffle
+		 * @return {String}      The first item in the shuffled array
+		 */
+		function shuffle(array) {
+
+			let currentIndex = array.length;
+			let temporaryValue, randomIndex;
+
+			// While there remain elements to shuffle...
+			while (0 !== currentIndex) {
+				// Pick a remaining element...
+				randomIndex = Math.floor(Math.random() * currentIndex);
+				currentIndex -= 1;
+
+				// And swap it with the current element.
+				temporaryValue = array[currentIndex];
+				array[currentIndex] = array[randomIndex];
+				array[randomIndex] = temporaryValue;
+			}
+
+			return array;
+
+		}
+
+		function getNope() {
+
+			shuffle(nopes);
+			if (!recentNopes.includes(nopes[0])) {
+				if (recentNopes.length >= 10) {
+					recentNopes.shift();
+				}
+				recentNopes.push(nopes[0]);
+				nopeDisplay.textContent = nopes[0];
+				console.log(recentNopes);
+			}
+			else getNope();
+		}
+
+		getNope();
+		button.addEventListener('click', getNope);
 
 	</script>
 </body>
+
 </html>
