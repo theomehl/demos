@@ -15,3 +15,5 @@
 ## [hello mclintock](/mclintock)
 
 ## [inspiration](/inspiration)
+
+## [No cookie notice](/no-cookie-notice)
