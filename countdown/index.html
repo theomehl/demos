@@ -5,39 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Prodigious.</title>
-    <meta name="description" content="Countdown timer counting down to some significant date I've chosen">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap">
-    <link rel="stylesheet" href="../base.css" media="all">
+    <title>Countdown</title>
+    <meta name="description" content="Count down to a date of your choosing.">
     <style>
         body {
             margin: 0;
             padding: 0;
             height: 100vh;
+            max-width: calc(100% - 4rem);
+            margin-inline: auto;
             text-align: center;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 24px;
-            background: var(--gray-100);
+            font-size: 18px;
+            font-family: monospace;
         }
 
         h1 {
             margin-bottom: 15px;
-            font-family: var(--serif);
-            font-weight: 400;
-            font-size: 48px;
+            font-weight: normal;
+            font-size: 4rem;
+        }
+        p {
+            margin-block: 0;
+        }
+        input[type="datetime-local"] {
+            margin-block-start: 2rem;
+            margin-block-end: 2.5rem;
         }
         .timer {
-            font-family: monospace;
+            font-size: 2.5rem;
+            margin-block-start: 2rem;
+        }
+        hr {
+            margin-block: 0;
         }
     </style>
 </head>
 
 <body>
     <div class="child">
-        <h1>Prodigious.</h1>
+        <h1 contenteditable spellcheck="false">Countdown</h1>
+        <p>Pick a date and time to start the countdown. <br>Change the title if you want, too. </p>
+        <input type="datetime-local">
+        <hr>
         <div class="countdown">
             <p class="timer">
                 <span id="days">&nbsp;</span>
@@ -47,7 +59,74 @@
             </p>
         </div>
     </div>
-    <script src="countdown.js"></script>
+    <script>
+        let datetime = document.querySelector('input[type="datetime-local"]');
+        datetime.min = new Date(new Date().toString().split('GMT')[0]+' UTC').toISOString().split('.')[0].slice(0, -3);
+        let interval; 
+
+        let title = document.querySelector('h1');
+
+        function countdown() {
+            let days, hours, minutes, seconds;
+            let savedDate = localStorage.getItem('endDate');
+            if (!savedDate) return;
+            datetime.value = savedDate;
+
+            let endDate = new Date(savedDate).getTime();
+            if (isNaN(endDate)) return;
+
+            function calculate() {
+                let startDate = new Date();
+                startDate = startDate.getTime();
+
+                let timeRemaining = parseInt((endDate-startDate) / 1000);
+
+                if (timeRemaining > 0) {
+                    days = parseInt(timeRemaining/86400);
+                    timeRemaining = (timeRemaining % 86400);
+
+                    hours = parseInt(timeRemaining / 3600);
+                    timeRemaining = (timeRemaining %3600);
+
+                    minutes = parseInt(timeRemaining / 60);
+                    timeRemaining = (timeRemaining % 60);
+
+                    seconds = parseInt(timeRemaining);
+
+                    document.getElementById("days").innerHTML = parseInt(days, 10);
+                    document.getElementById("hours").innerHTML = ("0" + hours).slice(-2);
+                    document.getElementById("minutes").innerHTML = ("0" + minutes).slice(-2);
+                    document.getElementById("seconds").innerHTML = ("0" + seconds).slice(-2);
+                } else {
+                    return;
+                }
+            }
+            calculate();
+            interval = setInterval(calculate, 1000);
+        }
+
+        function getTitle() {
+            if (localStorage.getItem('title')) {
+                title.innerHTML = localStorage.getItem('title');
+            }
+        }
+
+        function setTitle() {
+            localStorage.setItem('title', title.innerHTML);
+            getTitle();
+        }
+
+        countdown();
+
+        datetime.addEventListener("change", function() {
+            localStorage.setItem('endDate', datetime.value);
+            clearInterval(interval);
+            countdown();
+        });
+
+        title.addEventListener("focusout", setTitle);
+        getTitle();
+    </script>
 </body>
 
 </html>
