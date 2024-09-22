@@ -27,8 +27,9 @@
             font-weight: normal;
             font-size: 4rem;
         }
-        p {
+        label {
             margin-block: 0;
+            display: block;
         }
         input[type="datetime-local"] {
             margin-block-start: 2rem;
@@ -45,10 +46,10 @@
 </head>
 
 <body>
-    <div class="child">
+    <main class="child" tabindex="-1">
         <h1 contenteditable spellcheck="false">Countdown</h1>
-        <p>Pick a date and time to start the countdown. <br>Change the title if you want, too. </p>
-        <input type="datetime-local">
+        <label for="datePicker">Pick a date and time to start the countdown. <br>Change the title if you want, too. </label>
+        <input type="datetime-local" id="datePicker" name="datePicker">
         <hr>
         <div class="countdown">
             <p class="timer">
@@ -58,7 +59,7 @@
                 <span id="seconds">&nbsp;</span>
             </p>
         </div>
-    </div>
+    </main>
     <script>
         let datetime = document.querySelector('input[type="datetime-local"]');
         datetime.min = new Date(new Date().toString().split('GMT')[0]+' UTC').toISOString().split('.')[0].slice(0, -3);
