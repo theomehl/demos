@@ -8,24 +8,29 @@
     <title>Countdown</title>
     <meta name="description" content="Count down to a date of your choosing.">
     <style>
+        :root {
+            color-scheme: dark light;
+        }
+
         body {
             margin: 0;
             padding: 0;
-            height: 100dvh;
-            max-width: calc(100% - 4rem);
-            margin-inline: auto;
             text-align: center;
             display: flex;
             justify-content: center;
-            align-items: center;
             font-size: 18px;
             font-family: monospace;
+        }
+        main {
+            max-width: calc(100% - 8rem);
+            margin-inline: auto;
         }
 
         h1 {
             margin-bottom: 15px;
             font-weight: normal;
-            font-size: 4rem;
+            font-size: 3rem;
+            text-wrap: balance;
         }
         label {
             margin-block: 0;
@@ -41,23 +46,35 @@
         }
         hr {
             margin-block: 0;
+            border-block-end: 2px solid;
         }
+
+        @media (min-width: 768px) {
+            body {
+                height: 100dvh;
+                align-items: center;
+                overflow-y: auto;
+            }
+        }
+
     </style>
 </head>
 
 <body tabindex="-1">
-    <main class="child">
-        <h1 contenteditable spellcheck="false">Countdown</h1>
-        <label for="datePicker">Pick a date and time to start the countdown. <br>Change the title if you want, too. </label>
-        <input type="datetime-local" id="datePicker" name="datePicker">
-        <hr>
-        <div class="countdown">
-            <p class="timer">
-                <span id="days">&nbsp;</span>
-                <span id="hours">&nbsp;</span>
-                <span id="minutes">&nbsp;</span>
-                <span id="seconds">&nbsp;</span>
-            </p>
+    <main>
+        <div class="countdown-container">
+            <h1 contenteditable spellcheck="false">Countdown</h1>
+            <label for="datePicker">Pick a date and time to start the countdown. <br>Change the title if you want, too. </label>
+            <input type="datetime-local" id="datePicker" name="datePicker">
+            <hr>
+            <div class="countdown">
+                <p class="timer">
+                    <span id="days">&nbsp;</span>
+                    <span id="hours">&nbsp;</span>
+                    <span id="minutes">&nbsp;</span>
+                    <span id="seconds">&nbsp;</span>
+                </p>
+            </div>
         </div>
     </main>
     <script>
