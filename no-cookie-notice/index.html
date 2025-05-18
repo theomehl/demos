@@ -24,17 +24,17 @@
       justify-content: center;
     }
 
-    .cookie-notice-wrapper {
+    .notice-wrapper {
       position: relative;
     }
 
-    .cookie-notice-wrapper button {
+    .notice-wrapper button {
       position: absolute;
       top: 0.5rem;
       right: 0.5rem;
     }
 
-    .cookie-notice {
+    .notice {
       position: fixed;
       bottom: 0;
       padding: 1rem;
@@ -53,29 +53,29 @@
   <main>
     <h1>No Cookies Notice</h1>
   </main>
-  <div id="cookie-notice" class="cookie-notice-wrapper" hidden>
-    <div class="cookie-notice">
+  <div id="notice" class="notice-wrapper" hidden>
+    <div class="notice">
       <p>We don't use cookies to help make your experience worse. By continuing to use the site, you confirm that we
-        don't use cookies.</p> <button id="cookie-button" aria-label="Close cookie notice">×</button>
+        don't use cookies.</p> <button id="notice-button" aria-label="Close no cookie notice">×</button>
     </div>
   </div>
   <script>
-    let cookieButton = document.querySelector('#cookie-button');
-    let cookieNotice = document.querySelector('#cookie-notice');
+    let button = document.querySelector('#notice-button');
+    let notice = document.querySelector('#notice');
 
-    function showCookieNotice() {
+    function showNotice() {
       if (localStorage.getItem('cookieDismissed') == 'true') return;
-      cookieNotice.toggleAttribute('hidden');
+      notice.toggleAttribute('hidden');
     }
 
-    function dismissCookieNotice() {
-      cookieNotice.toggleAttribute('hidden');
+    function dismissNotice() {
+      notice.toggleAttribute('hidden');
       localStorage.setItem('cookieDismissed', 'true');
     }
 
-    cookieButton.addEventListener('click', dismissCookieNotice);
+    button.addEventListener('click', dismissNotice);
 
-    showCookieNotice();
+    showNotice();
   </script>
 
 </body>
